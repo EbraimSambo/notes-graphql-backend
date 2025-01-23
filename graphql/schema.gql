@@ -1,0 +1,60 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateNoteDto {
+  content: String!
+  title: String!
+  user_id: Int!
+}
+
+input CreateUserDTo {
+  email: String!
+  name: String!
+  password: String!
+}
+
+input LoginDto {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  createNote(fields: CreateNoteDto!): Note!
+  createUser(fields: CreateUserDTo!): User!
+  deleteNote(id: Int!): Note!
+  deleteNotePermanent(id: Int!): Note!
+  login(fields: LoginDto!): User!
+  updateNote(fields: UpdateNotesDto!, id: Int!): Note!
+}
+
+type Note {
+  content: String!
+  created_at: String!
+  id: Int!
+  is_delete: Boolean!
+  title: String!
+  updated_at: String!
+  user: User
+  user_id: Int!
+}
+
+type Query {
+  findAll: [User!]!
+  note(id: Int!): Note!
+  notes(user_id: Int!): [Note!]!
+}
+
+input UpdateNotesDto {
+  content: String
+  title: String
+}
+
+type User {
+  created_at: String!
+  email: String!
+  id: Int!
+  name: String!
+  password: String
+  updated_at: String!
+}
