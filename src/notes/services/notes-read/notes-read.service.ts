@@ -15,6 +15,11 @@ export class NotesReadService {
         return await this.repo.read.findAllByUserId(user_id)
     }
 
+    async findAllDeleted(user_id: number){
+        await this.user_service.read.findById(user_id)
+        return await this.repo.read.findAllByUserIdDeleted(user_id)
+    }
+
     async findOnde(id: number){
         const note = await this.repo.read.findOneId(id)
         if(!note) throw new NotFoundException("nOTA NAO ENCONTRADA")

@@ -17,6 +17,14 @@ export class NotesReadResolver {
     }
 
 
+    @Query(()=>[Note])
+    async notesDeleted(
+        @Args('user_id', {type: ()=>Int}) user_id: number 
+    ){
+        return await this.service.read.findAllDeleted(user_id)
+    }
+
+
     @Query(()=>Note)
     async note(
         @Args('id', {type: ()=>Int}) id: number 

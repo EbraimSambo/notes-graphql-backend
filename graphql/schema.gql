@@ -43,6 +43,7 @@ type Query {
   findAll: [User!]!
   note(id: Int!): Note!
   notes(user_id: Int!): [Note!]!
+  notesDeleted(user_id: Int!): [Note!]!
 }
 
 input UpdateNotesDto {

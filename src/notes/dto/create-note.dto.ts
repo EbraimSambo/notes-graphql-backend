@@ -11,6 +11,7 @@ export class CreateNoteDto {
     @IsString()
     @IsNotEmpty()
     content: string
+    
     @Field(() => Int)
     @IsNotEmpty()
     @IsNumber()

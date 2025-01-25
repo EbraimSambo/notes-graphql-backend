@@ -23,6 +23,9 @@ let NotesReadResolver = class NotesReadResolver {
     async notes(user_id) {
         return await this.service.read.findAll(user_id);
     }
+    async notesDeleted(user_id) {
+        return await this.service.read.findAllDeleted(user_id);
+    }
     async note(id) {
         return await this.service.read.findOnde(id);
     }
@@ -35,6 +38,13 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], NotesReadResolver.prototype, "notes", null);
+__decorate([
+    (0, graphql_1.Query)(() => [notes_entity_1.Note]),
+    __param(0, (0, graphql_1.Args)('user_id', { type: () => graphql_1.Int })),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], NotesReadResolver.prototype, "notesDeleted", null);
 __decorate([
     (0, graphql_1.Query)(() => notes_entity_1.Note),
     __param(0, (0, graphql_1.Args)('id', { type: () => graphql_1.Int })),

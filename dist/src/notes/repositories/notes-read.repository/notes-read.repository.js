@@ -19,7 +19,30 @@ let NotesReadRepository = class NotesReadRepository {
     async findAllByUserId(user_id) {
         return this.database.note.findMany({
             where: {
-                user_id
+                user_id,
+                is_delete: {
+                    not: {
+                        equals: true
+                    }
+                }
+            },
+            orderBy: {
+                created_at: "desc"
+            }
+        });
+    }
+    async findAllByUserIdDeleted(user_id) {
+        return this.database.note.findMany({
+            where: {
+                user_id,
+                is_delete: {
+                    not: {
+                        equals: false
+                    }
+                }
+            },
+            orderBy: {
+                created_at: "desc"
             }
         });
     }
