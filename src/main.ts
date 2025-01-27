@@ -12,7 +12,7 @@ async function bootstrap() {
         'X-Request-With',
         'apollo-require-preflight'
       ],
-      origin: ['http://localhost:3000']
+      origin: ['http://localhost:3000',process.env.URL_CORS]
     }
   });
   app.useGlobalPipes(new ValidationPipe({
